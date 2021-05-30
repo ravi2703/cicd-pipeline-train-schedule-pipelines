@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+  stages {
+    stage ('Build') {
+      steps {
+        echo 'Running build autmation'
+        sh './gradelew build --no-daemon'
+        archive Artifacts artifacts: 'dist/trainSchedule.zip'
+      }
+    }  
+  }   
+}
